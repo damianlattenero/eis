@@ -11,14 +11,16 @@ require_relative '../model/chopper'
 
 describe 'Chopper' do
   let(:chopper) { Chopper.new }
+
+  it 'chop de 3 y vacio deberia ser -1' do
+    expect(chopper.chop(3,[])).to eq -1
+  end
+
 end
 
 =begin
 
 
-	it 'chop de 3 y vacio deberia ser -1' do
-		expect(chopper.chop(3,[])).to eq -1
-	end
 
 	it 'chop de 3 y [3] deberia ser 0' do
 		expect(chopper.chop(3,[3])).to eq 0
