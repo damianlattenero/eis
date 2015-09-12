@@ -5,7 +5,11 @@ class Chopper
   end
 
   def sum list
-    'vacio'
+    if list.empty?
+      'vacio'
+    else
+      'uno'
+    end
   end
 
 end
