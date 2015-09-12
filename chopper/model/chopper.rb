@@ -4,4 +4,8 @@ class Chopper
     list.length - 1
   end
 
+  def sum list
+    'vacio'
+  end
+
 end
