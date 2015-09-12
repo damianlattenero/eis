@@ -8,20 +8,26 @@ class Chopper
   def sum list
 
     digitos_en_palabras = ''
+    sumar_todo = list.reduce(0) { |a, r| a+r }
 
     if list.empty?
-      return 'vacio'
+      return "vacio"
+    elsif sumar_todo > 99
+      return "demasiado grande"
     else
-      sumar_todo = list.reduce(0) { |a, r| a+r }
+
       digitos_en_numeros = self.lista_digitos(sumar_todo)
 
       digitos_en_numeros.each { |digito|
         digitos_en_palabras << self.convertir_a_palabra(digito) << ','
       }
+
+      return digitos_en_palabras.chop
     end
 
-    digitos_en_palabras.chop
+
   end
+
 
   def lista_digitos n
     ret = []
@@ -39,12 +45,17 @@ class Chopper
 
   def convertir_a_palabra n
     case n
+      when 0 then "cero"
       when 1 then "uno"
       when 2 then "dos"
       when 3 then "tres"
-      when 8 then "ocho"
       when 4 then "cuatro"
-      else n.to_s
+      when 5 then "cinco"
+      when 6 then "seis"
+      when 7 then "siete"
+      when 8 then "ocho"
+      when 9 then "nueve"
+      else raise "no es un numero!"
 
     end
   end
