@@ -5,27 +5,31 @@
 # Una vez completa la tarea, generar un TAG en el repositorio y subir a alfred el link a dicho TAG
 # Fecha de entrega 13 de Septiembre
 
-require 'rspec' 
+require 'rspec'
 require_relative '../model/chopper'
 
-describe 'Chopper' do
 
-	let(:chopper) { Chopper.new }  
+describe 'Chopper' do
+  let(:chopper) { Chopper.new }
+end
+
+=begin
+
 
 	it 'chop de 3 y vacio deberia ser -1' do
 		expect(chopper.chop(3,[])).to eq -1
 	end
 
 	it 'chop de 3 y [3] deberia ser 0' do
-		expect(chopper.chop(3,[3])).to eq 0 
+		expect(chopper.chop(3,[3])).to eq 0
 	end
 
 	it 'chop de 3 y [0,7,3] deberia ser 0' do
-		expect(chopper.chop(3,[0,7,3])).to eq 2 
+		expect(chopper.chop(3,[0,7,3])).to eq 2
 	end
 
 	it 'sum de [] deberia ser vacio' do
-		expect(chopper.sum([])).to eq 'vacio' 
+		expect(chopper.sum([])).to eq 'vacio'
 	end
 
 	it 'sum de [1] deberia ser uno' do
@@ -48,4 +52,4 @@ describe 'Chopper' do
 		expect(chopper.sum([50,49])).to eq 'nueve,nueve'
 	end
 
-end
+=end
