@@ -1,6 +1,7 @@
 require 'rspec'
 require_relative '../model/char_counter.rb'
 
+=begin
 describe 'CharCounter' do
   
   it 'should return {a=>1} when string is a' do
@@ -41,3 +42,4 @@ describe 'CharCounter' do
   end    
 
 end
+=end

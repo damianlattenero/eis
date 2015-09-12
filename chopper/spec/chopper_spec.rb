@@ -5,8 +5,10 @@
 # Una vez completa la tarea, generar un TAG en el repositorio y subir a alfred el link a dicho TAG
 # Fecha de entrega 13 de Septiembre
 
-require 'rspec' 
+require 'rspec'
+=begin
 require_relative '../model/chopper'
+
 
 describe 'Chopper' do
 
@@ -49,3 +51,5 @@ describe 'Chopper' do
 	end
 
 end
+
+=end
