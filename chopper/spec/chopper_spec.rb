@@ -24,6 +24,10 @@ describe 'Chopper' do
     expect(chopper.chop(3,[0,7,3])).to eq 2
   end
 
+  it 'chop de 3 y [0,7,3,4,4] deberia ser 2' do
+    expect(chopper.chop(3,[0,7,3,4,4])).to eq 2
+  end
+
   it 'sum de [] deberia ser vacio' do
     expect(chopper.sum([])).to eq 'vacio'
   end
@@ -57,6 +61,10 @@ describe 'Chopper' do
     expect(chopper.sum([15])).to eq 'uno,cinco'
   end
 
+  it 'sum de [20,1,1,1] deberia ser dos,tres' do
+    expect(chopper.sum([20,1,1,1])).to eq 'dos,tres'
+  end
+
 end
 
 =begin
@@ -65,8 +73,6 @@ end
 
 
 
-	it 'sum de [20,1,1,1] deberia ser dos,tres' do
-		expect(chopper.sum([20,1,1,1])).to eq 'dos,tres'
-	end
+
 
 =end

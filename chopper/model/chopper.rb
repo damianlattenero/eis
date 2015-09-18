@@ -1,14 +1,20 @@
 class Chopper
 
   def chop n, list
-    list.length - 1
+    list.inject(-1) { |r, a|
+      if n == a
+        return r + 1
+      else
+        r + 1
+      end
+    }
   end
 
 
   def sum list
 
     digitos_en_palabras = ''
-    sumar_todo = list.reduce(0) { |a, r| a+r }
+    sumar_todo = list.inject(0) { |a, r| a+r }
 
     if list.empty?
       return "vacio"
