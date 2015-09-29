@@ -51,3 +51,27 @@ describe 'Papel' do
     expect(papel.juega_con(Mono)).to eq Perdio
   end
 end
+
+describe 'Tijera' do
+  let(:piedra) {Piedra.new}
+  let(:papel) {Papel.new}
+  let(:tijera) {Tijera.new}
+  let(:mono) {Mono.new}
+
+
+  it 'Tijera deberia ganarle a Papel' do
+    expect(tijera.juega_con(Papel)).to eq Gano
+  end
+
+  it 'Tijera deberia empatar con Tijera' do
+    expect(tijera.juega_con(Tijera)).to eq Empato
+  end
+
+  it 'Tijera deberia perder con Piedra' do
+    expect(tijera.juega_con(Piedra)).to eq Perdio
+  end
+
+  it 'Tijera deberia ganar con Mono' do
+    expect(tijera.juega_con(Mono)).to eq Gano
+  end
+end
