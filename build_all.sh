@@ -16,4 +16,3 @@ cd batalla_naval
 bundle install
 bundle exec rake
 
-
