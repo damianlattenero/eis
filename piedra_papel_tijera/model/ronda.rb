@@ -10,7 +10,6 @@ class Ronda
     if res == Gano
       @jugador1.victorias += 1
     else
-      puts res.to_s
       @jugador2.victorias +=1
     end
 
