@@ -14,7 +14,7 @@ Feature: Como usuario quiero ubicar mis barcos
   @wip
   Scenario: ubico mi barco exitosamente
     Given la posicion del juego 1,1 1,2 y 1,3 que estan vacías y un barco tipo acorazado
-    When ubico un barco tipo acorazado horizontal
+    When ubico un barco tipo "acorazado" "horizontal"
     Then se ubica exitosamente acorazado
 
   @wip
