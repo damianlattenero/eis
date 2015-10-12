@@ -6,8 +6,9 @@ class BatallaNaval
     @tablero = []
   end
 
-  def ubicar_barco_en posicion, barco, direccion = nil
-    barco.ubicar_barco_en(posicion,direccion)
+  def ubicar_barco_en x,y, tipo_barco, direccion = nil
+    barco = Barco.create(tipo_barco)
+    barco.ubicar_barco_en(Posicion.new(x,y),direccion)
     @tablero << barco
     Failable.success 'barco colocado exitosamente'
   end

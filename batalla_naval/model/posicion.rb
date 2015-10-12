@@ -6,8 +6,11 @@ class Posicion
     @y = y
   end
 
-  def posicion
-    "#{@x},#{@y}"
+  def ==(pos)
+    pos.state == self.state
   end
 
+  def state
+    self.instance_variables.map { |variable| self.instance_variable_get variable }
+  end
 end
