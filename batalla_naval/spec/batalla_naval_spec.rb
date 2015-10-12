@@ -48,5 +48,12 @@ describe 'ubicacion de acorazado' do
 
   end
 
+  it 'cuando coloco un barco tipo acorazado en 1,1 horizontal deberia aparecer en la posicion 1,1 y 2,1 3,1 del tablero' do
+    @posicion = Posicion.new(1,1)
+    batalla_naval.ubicar_barco_en(1,1, "acorazado", "vertical")
+    expect(batalla_naval.hay_barco_en?(@posicion)).to be_truthy
+    expect(batalla_naval.hay_barco_en?(Posicion.new(1,2))).to be_truthy
+    expect(batalla_naval.hay_barco_en?(Posicion.new(1,3))).to be_truthy
 
+  end
 end
