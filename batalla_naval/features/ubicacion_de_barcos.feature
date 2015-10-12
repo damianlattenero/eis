@@ -5,10 +5,10 @@ Feature: Como usuario quiero ubicar mis barcos
     When ubico un barco tipo "submarino"
     Then se ubica exitosamente submarino
 
-  @wip
+
   Scenario: ubico mi barco exitosamente
     Given la posicion del juego 1,1 y 1,2 que estan vacías y un barco tipo crucero
-    When ubico un barco tipo crucero horizontal
+    When ubico un barco tipo "crucero" "horizontal"
     Then se ubica exitosamente crucero
 
   @wip

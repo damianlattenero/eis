@@ -16,3 +16,15 @@ describe 'ubicacion de submarino' do
 
 end
 
+describe 'ubicacion de crucero' do
+  let(:batalla_naval) { BatallaNaval.new }
+
+  it 'cuando coloco un barco tipo crucero en 1,1 horizontal deberia aparecer en la posicion 1,1 y 2,1 del tablero' do
+    @posicion = Posicion.new(1,1)
+    batalla_naval.ubicar_barco_en(1,1, "crucero", "horizontal")
+    expect(batalla_naval.hay_barco_en?(@posicion)).to be_truthy
+    expect(batalla_naval.hay_barco_en?(Posicion.new(2,1))).to be_truthy
+  end
+
+
+end
