@@ -11,3 +11,6 @@ cd ..
 cd piedra_papel_tijera
 bundle install
 bundle exec rake
+cd ..
+cd batalla_naval
+bundle install
