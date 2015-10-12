@@ -33,7 +33,7 @@ When(/^ubico un barco tipo "([^"]*)" "([^"]*)"$/) do |tipo_barco, direccion|
 end
 
 Then(/^se ubica exitosamente crucero$/) do
-  @fallo_al_colocar.to_s.should == "Success barco colocado exitosamente"
+  expect(@fallo_al_colocar.to_s).to eq "Success barco colocado exitosamente"
 end
 
 Given(/^la posicion del juego (\d+),(\d+) (\d+),(\d+) y (\d+),(\d+) que estan vacías y un barco tipo acorazado$/) do |arg1, arg2, arg3, arg4, arg5, arg6|
@@ -49,8 +49,25 @@ end
 
 
 Then(/^se ubica exitosamente acorazado$/) do
-  @fallo_al_colocar.to_s.should == "Success barco colocado exitosamente"
+  expect(@fallo_al_colocar.to_s).to eq  "Success barco colocado exitosamente"
 end
 
+#posiciones ocupadas
+
+Given(/^la posicion (\d+),(\d+) que tiene un "([^"]*)" ya ubicado y voy a ubicar un barco tipo submarino$/) do |x, y, barco|
+  @x = x.to_i
+  @y = y.to_i
+
+  @batalla_naval = BatallaNaval.new
+  @batalla_naval.ubicar_barco_en(@x, @y, barco)
+end
+
+When(/^ubico un barco tipo "([^"]*)" en posicion ocupada$/) do |barco|
+  @fallo_al_colocar = @batalla_naval.ubicar_barco_en(@x,@y,barco)
+end
+
+Then(/^no lo puedo ubicar$/) do
+  expect(@fallo_al_colocar.to_s).to eq  "Failure ya hay un barco en esa posicion"
+end
 
 

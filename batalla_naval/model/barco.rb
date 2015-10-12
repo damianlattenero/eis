@@ -20,16 +20,22 @@ class Barco
   end
 
   def ubicar_barco_en posicion, direccion = nil
+    posiciones = self.posiciones_a_ocupar posicion, direccion
+    @posiciones_sin_disparar.concat posiciones
+  end
+
+  def posiciones_a_ocupar posicion, direccion = nil
     pos = posicion
+    result = []
     @largo.times do |n|
-      @posiciones_sin_disparar << pos
+      result << pos
       if direccion == "horizontal"
         pos = Posicion.new(pos.x + 1, pos.y)
       else
         pos = Posicion.new(pos.x, pos.y+1)
       end
     end
-
+    result
   end
 end
 

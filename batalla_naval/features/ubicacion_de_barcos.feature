@@ -16,16 +16,15 @@ Feature: Como usuario quiero ubicar mis barcos
     When ubico un barco "acorazado" "horizontal"
     Then se ubica exitosamente acorazado
 
-  @wip
   Scenario: ubico mi barco y ya hay uno
-    Given la posicion 1,1 que tiene un submarino ya ubicado y voy a ubicar un barco tipo submarino
-    When ubico un barco tipo submarino
+    Given la posicion 1,1 que tiene un "submarino" ya ubicado y voy a ubicar un barco tipo submarino
+    When ubico un barco tipo "submarino" en posicion ocupada
     Then no lo puedo ubicar
 
   @wip
   Scenario: ubico mi barco y ya hay uno
     Given la posicion 1,1 y 1,2 que tiene un submarino ya ubicado en 1,2 y voy a ubicar un barco tipo crucero
-    When ubico un barco tipo crucero horizontal en 1,1
+    When ubico un barco tipo crucero horizontal en 1,1 en posicion ocupada
     Then no lo puedo ubicar
 
   @wip
