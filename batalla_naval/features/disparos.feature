@@ -10,8 +10,9 @@ Feature: Como usuario quiero disparar a los barcos enemigos
     When disparo en esa posicion
     Then lo toco pero no lo hundo
 
-  @wip
+
   Scenario: disparar y encontrar barco con tan solo una celda
-    Given dada la posicion 1,1 y 1,2 con un barco tipo "crucero" en dichas posiciones tocado en la posicion 1,1
-    When disparo en esa posicion en posicion 1,2
+    Given dada la posicion 1,1 y 2,1 con un barco tipo "crucero" en dichas
+    When disparo en esa posicion en posicion 1,1
+    And disparo en esa posicion en posicion 2,1
     Then lo hundo

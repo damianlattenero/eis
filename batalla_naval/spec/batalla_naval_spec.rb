@@ -130,10 +130,24 @@ describe 'disparo y hay barco' do
   let(:batalla_naval) { BatallaNaval.new }
 
   it 'cuando disparo en 1,1 y hay un crucero en 1,1 y 1,2 lo toco pero no lo hundo' do
-    @fallo = batalla_naval.ubicar_barco_en(1,1, "crucero", "horizontal")
+    batalla_naval.ubicar_barco_en(1,1, "crucero", "horizontal")
     @resultado = batalla_naval.disparar_en(1,1)
 
     expect(@resultado).to eq Tocado
+
+  end
+
+end
+
+describe 'disparo y hay barco' do
+  let(:batalla_naval) { BatallaNaval.new }
+
+  it 'cuando disparo en 1,1 y hay un crucero en 1,1 y 1,2 lo toco pero no lo hundo' do
+    batalla_naval.ubicar_barco_en(1,1, "crucero", "horizontal")
+    @resultado = batalla_naval.disparar_en(1,1)
+    expect(@resultado).to eq Tocado
+    @resultado = batalla_naval.disparar_en(2,1)
+    expect(@resultado).to eq Hundido
 
   end
 

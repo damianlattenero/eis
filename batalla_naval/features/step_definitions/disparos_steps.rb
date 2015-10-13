@@ -34,3 +34,21 @@ end
 Then(/^lo toco pero no lo hundo$/) do
   expect(@resultado).to eq Tocado
 end
+
+Given(/^dada la posicion (\d+),(\d+) y (\d+),(\d+) con un barco tipo "([^"]*)" en dichas$/) do |x, y, arg3, arg4, barco|
+  @x = x.to_i
+  @y = y.to_i
+
+  @batalla_naval = BatallaNaval.new
+  @batalla_naval.ubicar_barco_en @x, @y, barco, "horizontal"
+end
+
+When(/^disparo en esa posicion en posicion (\d+),(\d+)$/) do |x, y|
+  @x = x.to_i
+  @y = y.to_i
+  @resultado = @batalla_naval.disparar_en @x, @y
+end
+
+Then(/^lo hundo$/) do
+  expect(@resultado).to eq Hundido
+end
