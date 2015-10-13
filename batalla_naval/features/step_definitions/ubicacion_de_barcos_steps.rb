@@ -53,7 +53,7 @@ Then(/^se ubica exitosamente acorazado$/) do
 end
 
 #posiciones ocupadas
-
+#submarino
 Given(/^la posicion (\d+),(\d+) que tiene un "([^"]*)" ya ubicado y voy a ubicar un barco tipo submarino$/) do |x, y, barco|
   @x = x.to_i
   @y = y.to_i
@@ -70,4 +70,25 @@ Then(/^no lo puedo ubicar$/) do
   expect(@fallo_al_colocar.to_s).to eq  "Failure ya hay un barco en esa posicion"
 end
 
+#crucero
 
+Given(/^la posicion (\d+),(\d+) y (\d+),(\d+) que tiene un "([^"]*)" ya ubicado en (\d+),(\d+) y voy a ubicar un barco tipo "([^"]*)"$/) do |arg1, arg2, arg3, arg4, submarino, x, y, crucero|
+  @x = x.to_i
+  @y = y.to_i
+
+  @batalla_naval = BatallaNaval.new
+  @batalla_naval.ubicar_barco_en(@x, @y, submarino)
+end
+
+When(/^ubico un barco tipo "([^"]*)" "([^"]*)" en (\d+),(\d+) en posicion ocupada$/) do |crucero, horizontal,x1, y1|
+
+  @x1 = x1.to_i
+  @y1 = y1.to_i
+
+  @fallo_al_colocar = @batalla_naval.ubicar_barco_en(@x1, @y1, crucero, horizontal)
+
+end
+
+Then(/^no lo puedo ubicar al crucero$/) do
+  expect(@fallo_al_colocar.to_s).to eq  "Failure ya hay un barco en esa posicion"
+end

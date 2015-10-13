@@ -19,9 +19,8 @@ class Barco
     @posiciones_sin_disparar.include?(posicion)
   end
 
-  def ubicar_barco_en posicion, direccion = nil
-    posiciones = self.posiciones_a_ocupar posicion, direccion
-    @posiciones_sin_disparar.concat posiciones
+  def ubicar_barco_en posiciones_que_ocupara
+    @posiciones_sin_disparar.concat posiciones_que_ocupara
   end
 
   def posiciones_a_ocupar posicion, direccion = nil
@@ -31,7 +30,7 @@ class Barco
       result << pos
       if direccion == "horizontal"
         pos = Posicion.new(pos.x + 1, pos.y)
-      else
+      elsif direccion == "vertical"
         pos = Posicion.new(pos.x, pos.y+1)
       end
     end
@@ -46,7 +45,7 @@ class Submarino < Barco
     @largo = 1
   end
 
-  def ubicar_barco_en posicion, direccion = nil
+  def ubicar_barco_en posicion
     super
   end
 end
@@ -59,7 +58,7 @@ class Crucero < Barco
   end
 
 
-  def ubicar_barco_en posicion, direccion = nil
+  def ubicar_barco_en posicion
     super
   end
 end
@@ -71,7 +70,7 @@ class Acorazado < Barco
   end
 
 
-  def ubicar_barco_en posicion, direccion = nil
+  def ubicar_barco_en posicion
     super
   end
 end

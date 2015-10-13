@@ -10,7 +10,7 @@ describe 'ubicacion de submarino exitosa' do
   it 'cuando coloco un barco tipo submarino en 1,1 deberia aparecer en la posicion 1,1 del tablero' do
     @posicion = Posicion.new(1,1)
     @fallo = batalla_naval.ubicar_barco_en(1,1, "submarino")
-    expect(batalla_naval.hay_barco_en?(@posicion)).to be_truthy
+    expect(batalla_naval.hay_barco_en?(Posicion.new(1,1))).to be_truthy
     expect(@fallo.to_s).to eq "Success barco colocado exitosamente"
   end
 
@@ -50,6 +50,23 @@ describe 'ubicacion de crucero' do
     expect(batalla_naval.hay_barco_en?(@posicion)).to be_truthy
     expect(batalla_naval.hay_barco_en?(Posicion.new(1,2))).to be_truthy
   end
+
+
+end
+
+describe 'ubicacion de crucero fallida' do
+  let(:batalla_naval) { BatallaNaval.new }
+
+  it 'cuando coloco un barco tipo crucero en 1,1 horizontal y hay un submarino en la posicion 1,1 no puedo colocarlo' do
+    @posicion = Posicion.new(1,1)
+    @fallo = batalla_naval.ubicar_barco_en(1, 1, "submarino", "horizontal")
+    @fallo = batalla_naval.ubicar_barco_en(1, 1, "crucero", "horizontal")
+    expect(@fallo.to_s).to eq "Failure ya hay un barco en esa posicion"
+
+
+  end
+
+
 
 
 end
