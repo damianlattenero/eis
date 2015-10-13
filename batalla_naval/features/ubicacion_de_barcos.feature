@@ -27,8 +27,7 @@ Feature: Como usuario quiero ubicar mis barcos
     When ubico un barco tipo "crucero" "horizontal" en 1,1 en posicion ocupada
     Then no lo puedo ubicar al crucero
 
-  @wip
   Scenario: ubico mi barco fuera del tablero
     Given un batalla naval de 20 por 20 y la posicion 21,20 y un barco tipo submarino
-    When ubico mi barco
-    Then no lo puedo ubicar
+    When ubico mi barco tipo "submarino"
+    Then no lo puedo ubicar fuera del tablero

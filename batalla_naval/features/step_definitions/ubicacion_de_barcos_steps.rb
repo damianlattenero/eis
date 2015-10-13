@@ -92,3 +92,22 @@ end
 Then(/^no lo puedo ubicar al crucero$/) do
   expect(@fallo_al_colocar.to_s).to eq  "Failure ya hay un barco en esa posicion"
 end
+
+Given(/^un batalla naval de (\d+) por (\d+) y la posicion (\d+),(\d+) y un barco tipo submarino$/) do |arg1, arg2, x, y|
+  @x = x.to_i
+  @y = y.to_i
+  @batalla_naval = BatallaNaval.new
+end
+
+When(/^ubico mi barco tipo "([^"]*)"$/) do |submarino|
+  begin
+    @batalla_naval.ubicar_barco_en(@x, @y, submarino)
+  rescue FueraDelTableroExcepcion => e
+    @excepcion = e
+  end
+
+end
+
+Then(/^no lo puedo ubicar fuera del tablero$/) do
+  expect(@excepcion.message).to eq 'No se puede ubicar un barco fuera de las dimensiones del tablero'
+end

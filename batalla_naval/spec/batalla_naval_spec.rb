@@ -98,3 +98,19 @@ describe 'ubicacion de acorazado' do
 
   end
 end
+
+describe 'ubicacion de submarino fuera del tablero' do
+  let(:batalla_naval) { BatallaNaval.new }
+
+  it 'cuando coloco un barco tipo submarino en 1,21 en un tablero de 20,20 no lo puedo colocar' do
+    begin
+      batalla_naval.ubicar_barco_en(1,21, "submarino")
+    rescue FueraDelTableroExcepcion => e
+      @excepcion = e
+    end
+
+    expect(@excepcion.message).to eq 'No se puede ubicar un barco fuera de las dimensiones del tablero'
+  end
+
+
+end
