@@ -51,10 +51,24 @@ class BatallaNaval
     posicion.x > @dimension_x || posicion.x < 0 ||
         posicion.y > @dimension_y || posicion.y < 0
   end
+
+  def disparar_en x, y
+    Agua
+  end
 end
 
 class FueraDelTableroExcepcion < Exception
   def message
     'No se puede ubicar un barco fuera de las dimensiones del tablero'
   end
+end
+
+
+class Agua
+end
+
+class Tocado
+end
+
+class Hundido
 end

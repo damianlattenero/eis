@@ -1,5 +1,5 @@
 Feature: Como usuario quiero disparar a los barcos enemigos
-  @wip
+
   Scenario: disparar y tocar agua
     Given la posicion 1,1 del juego sin barco
     When disparo en posicion

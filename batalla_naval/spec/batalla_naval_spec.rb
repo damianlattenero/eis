@@ -114,3 +114,14 @@ describe 'ubicacion de submarino fuera del tablero' do
 
 
 end
+
+describe 'disparo y no hay barco' do
+  let(:batalla_naval) { BatallaNaval.new }
+
+  it 'en un juego sin barcos si disparo en la posicion 1,1 toco agua' do
+    @resultado = batalla_naval.disparar_en(1,1)
+    expect(@resultado).to eq Agua
+  end
+
+
+end
