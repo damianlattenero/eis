@@ -36,6 +36,17 @@ class Barco
     end
     result
   end
+
+  def disparar_en posicion
+    @posiciones_sin_disparar.delete posicion
+    @posiciones_disparadas << posicion
+
+    if @posiciones_sin_disparar.empty?
+      Hundido
+    else
+      Tocado
+    end
+  end
 end
 
 class Submarino < Barco

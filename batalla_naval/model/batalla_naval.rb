@@ -53,7 +53,15 @@ class BatallaNaval
   end
 
   def disparar_en x, y
-    Agua
+    pos = Posicion.new(x,y)
+
+    @tablero.inject(Agua){|result, barco|
+      if barco.tiene_posicion? pos
+        barco.disparar_en(pos)
+      else
+        result
+      end
+    }
   end
 end
 
