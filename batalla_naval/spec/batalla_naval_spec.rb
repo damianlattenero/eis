@@ -66,7 +66,13 @@ describe 'ubicacion de crucero fallida' do
 
   end
 
+  it 'cuando coloco un barco tipo crucero en 1,1 vertical y hay un submarino en la posicion 1,2 no puedo colocarlo' do
+    @posicion = Posicion.new(1,1)
+    batalla_naval.ubicar_barco_en(1, 2, "submarino", "horizontal")
+    @fallo = batalla_naval.ubicar_barco_en(1,1, "crucero", "vertical")
+    expect(@fallo.to_s).to eq "Failure ya hay un barco en esa posicion"
 
+  end
 
 
 end
