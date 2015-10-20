@@ -7,6 +7,10 @@ module Ejemplo
 
     enable :sessions
 
+    get '/' do
+      "operaciones = 0"
+    end
+
     get 'hola' do
       'hey! hola'
     end
