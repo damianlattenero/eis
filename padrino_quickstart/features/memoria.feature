@@ -3,7 +3,6 @@ Feature: memoria de cantidad de operaciones
     When no hice operaciones
     Then la cantidad de operaciones es 0
 
-  @wip
   Scenario: al sumar aumenta la cantidad de operaciones en 1
     When hago una suma
     Then la cantidad de operaciones es 1

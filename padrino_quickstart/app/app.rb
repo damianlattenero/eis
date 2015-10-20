@@ -7,8 +7,14 @@ module Ejemplo
 
     enable :sessions
 
-    get '/' do
-      "operaciones = 0"
+    get '' do
+      @operaciones ||= session[:operaciones] || 0
+      render 'calculadora'
+    end
+
+    post '' do
+      @operaciones = session[:operaciones] = (session[:@operaciones] || 0) + 1
+      render 'calculadora'
     end
 
     get 'hola' do
