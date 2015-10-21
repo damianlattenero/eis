@@ -11,4 +11,8 @@ describe 'Calculadora' do
   it 'sumar 20 y 22 da 42' do
     expect(Calculadora.suma 22, 20).to eq 42
   end
+
+  it 'restar 20 y 22 da -2' do
+    expect(Calculadora.resta 20, 22).to eq -2
+  end
 end
