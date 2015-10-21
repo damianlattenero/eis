@@ -15,3 +15,14 @@ When(/^hago una suma$/) do
     click_button('submit')
   end
 end
+
+When(/^hago una resta$/) do
+  visit '/'
+  with_scope('#calculadora') do
+    fill_in('operando_1', with: 2)
+    fill_in('operando_2', with: 2)
+    select('resta', from: 'operacion')
+    click_button('submit')
+  end
+end
+
