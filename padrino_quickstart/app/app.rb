@@ -14,9 +14,9 @@ module Ejemplo
 
     post '' do
       @operaciones = session[:operaciones] = (session[:operaciones] || 0) + 1
-      @operando_1 = 1
-      @operando_2 = 2
-      @resultado = 3
+      @operando_1 = params[:operando_1].to_i
+      @operando_2 = params[:operando_2].to_i
+      @resultado = @operando_1 + @operando_2
       render 'calculadora'
     end
 

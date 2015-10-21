@@ -9,6 +9,12 @@ Feature: Operaciones basicas
     When los sumo
     Then el resultado es 3
 
+  Scenario: suma
+    Given un operando es 2
+    And otro operando es 2
+    When los sumo
+    Then el resultado es 4
+
   @wip
   Scenario: resta
     Given un operando es 3
