@@ -26,7 +26,6 @@ Feature: memoria de cantidad de operaciones
     And hago un promedio
     Then la cantidad de operaciones es 3
 
-  @wip
   Scenario: cuando reseteo la cantidad de operaciones vuelve a cero
     When hago una suma
     And hago una resta

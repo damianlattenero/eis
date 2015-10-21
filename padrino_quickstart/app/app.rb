@@ -17,6 +17,11 @@ module Ejemplo
       render 'calculadora'
     end
 
+    post 'resetear_operaciones' do
+      @operaciones = session[:operaciones] = 0
+      redirect_to '/'
+    end
+
     get 'hola' do
       'hey! hola'
     end
@@ -30,6 +35,8 @@ module Ejemplo
       @nombre = session[:nombre]
       render 'saludo'
     end
+
+
 
   end
 end
