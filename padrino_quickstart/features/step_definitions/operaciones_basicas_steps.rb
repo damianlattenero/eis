@@ -21,6 +21,13 @@ When(/^los sumo$/) do
   end
 end
 
+When(/^los resto$/) do
+  with_scope('#calculadora') do
+    select('resta', from: 'operacion')
+    click_button('submit')
+  end
+end
+
 Then(/^el resultado es (\d+)$/) do |n|
   expect(page).to have_content("Resultado: #{n}")
 end

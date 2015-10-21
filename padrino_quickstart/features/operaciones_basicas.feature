@@ -15,7 +15,6 @@ Feature: Operaciones basicas
     When los sumo
     Then el resultado es 4
 
-  @wip
   Scenario: resta
     Given un operando es 3
     And otro operando es 1
