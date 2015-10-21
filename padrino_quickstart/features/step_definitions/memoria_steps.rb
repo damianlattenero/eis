@@ -26,3 +26,14 @@ When(/^hago una resta$/) do
   end
 end
 
+When(/^hago un promedio$/) do
+  visit '/'
+  with_scope('#calculadora') do
+    fill_in('operando_1', with: 2)
+    fill_in('operando_2', with: 2)
+    select('promedio', from: 'operacion')
+    click_button('submit')
+  end
+end
+
+

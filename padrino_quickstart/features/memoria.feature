@@ -10,7 +10,7 @@ Feature: memoria de cantidad de operaciones
   Scenario: al restar aumenta la cantidad de operaciones en 1
     When hago una resta
     Then la cantidad de operaciones es 1
-  @wip
+
   Scenario: al calcular el promedio la cantidad de operaciones es 1
     When hago un promedio
     Then la cantidad de operaciones es 1
