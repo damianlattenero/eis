@@ -20,6 +20,12 @@ Feature: memoria de cantidad de operaciones
     And hago una resta
     Then la cantidad de operaciones es 2
 
+  Scenario: cuando hago operaciones la cantidad de incrementa
+    When hago una suma
+    And hago una resta
+    And hago un promedio
+    Then la cantidad de operaciones es 3
+
   @wip
   Scenario: cuando reseteo la cantidad de operaciones vuelve a cero
     When hago una suma
