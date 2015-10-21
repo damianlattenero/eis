@@ -13,7 +13,7 @@ module Ejemplo
     end
 
     post '' do
-      @operaciones = session[:operaciones] = (session[:@operaciones] || 0) + 1
+      @operaciones = session[:operaciones] = (session[:operaciones] || 0) + 1
       render 'calculadora'
     end
 
